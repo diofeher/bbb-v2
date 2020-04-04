@@ -62,4 +62,4 @@ Troubleshooting
 ================
 Caso o comando Python não seja achado:
 
-export PATH="<local da instalacao do Python>:$PATH"
+`export PATH="<local da instalacao do Python>:$PATH"`
