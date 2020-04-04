@@ -180,8 +180,6 @@ class VoteBot(object):
             print("[-] Erro de autorização ou captcha inválido!")
         elif response.status_code == 422:
             print("[-] Proof of Work Inválido.")
-        elif response.status_code == 403:
-            print("[-] Captcha Incorreto.")
         elif response.status_code == 410:
             print("[-] Votação Fechada.")
         elif response.status_code == 503:

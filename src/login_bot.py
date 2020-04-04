@@ -24,6 +24,7 @@ def login_bot(email, password):
     session = requests.Session()
     print("[+] Fazendo login...")
     response = session.post('https://login.globo.com/api/authentication', headers=headers, json=data)
+
     HIDDEN = 80
     if response.status_code != 200:
         raise Exception("Login não foi feito com sucesso, tente de novo.")
