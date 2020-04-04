@@ -65,4 +65,13 @@ def cookie_string_to_mapping(text):
 def read_configuration_file():
     with open('config.json') as file:
         arguments = json.load(file)
+
+    part = arguments['participant']
+    if part not in [1,2,3]:
+        raise Exception("Você precisa escolher entre 1, 2 e 3 no config.json para votar.")
+
+    username = arguments['credentials']['username']
+    password = arguments['credentials']['password']
+    if not username or not password:
+        raise Exception("Você precisa preencher o nome de usuário e senha.")
     return arguments

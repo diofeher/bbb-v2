@@ -33,7 +33,7 @@ class VoteBot(object):
         self.captchaSessionToken = ''
         self.captchaVerificationToken = ''
         self.symbol = ''
-        self.participant = participant
+        self.participant = participant - 1
         self.option = 0
         self.computedVotes = 0
         self.hashcashZeros = 0
