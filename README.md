@@ -51,7 +51,7 @@ Normalmente o Python2 já vem instalado nessas máquinas, então você precisa i
 Rodando o bot:
 
 ```
-python3 bbb.py
+python3 src/bbb.py
 ```
 
 TREINAMENTO DO ALGORITMO

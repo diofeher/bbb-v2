@@ -96,12 +96,16 @@ class VoteBot(object):
 
         self.symbol = response_data['data']['symbol']
         self.captchaSessionToken = response_data['sessionToken']
-        save_image('./images/', self.symbol, response_data['data']['image'])
+        save_image('./src/images/', self.symbol, response_data['data']['image'])
         return response_data['data']
 
 
     def captcha_verification(self):
         print(f"[+] Procurando captcha no banco de dados: {self.symbol}")
+        self.option = compare(self.symbol)
+        y = 30
+        x = 53 * self.option + 25
+        print(f"Posição de clique (X: {x}, Y: {y})")
 
         params = {
             'appId': self.appId,
@@ -111,12 +115,12 @@ class VoteBot(object):
         payload_data = {
             'sessionToken': self.captchaSessionToken,
             'input': {
-                'clickX': 30 * self.option + 5,
-                'clickY': 30,
+                'clickX': x,
+                'clickY': y,
             }
         }
 
-        self.option = compare(self.symbol)
+
 
         data = {
             'payload': json.dumps(payload_data).replace(' ', '')

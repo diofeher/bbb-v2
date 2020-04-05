@@ -14,7 +14,7 @@ def save_candidate_name(path, image, icon_name, count):
 
 
 def save_tmp_name(image, icon_name, count):
-    image.save('.images_tmp/' + handle_name(icon_name) + '_' + str(count) + '.png')
+    image.save('./src/images_tmp/' + handle_name(icon_name) + '_' + str(count) + '.png')
 
 
 def list_individual_images(path):

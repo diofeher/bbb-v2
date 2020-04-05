@@ -5,8 +5,8 @@ from utils import list_individual_images, break_captcha, handle_name
 import sys
 
 
-READ_CAPTCHA_PATH = './images/'
-PATH_EXISTENT = './images_individual/'
+READ_CAPTCHA_PATH = './src/images/'
+PATH_EXISTENT = './src/images_individual/'
 
 
 def calculate_diff(img1, img2):
@@ -35,7 +35,7 @@ def compare_image(image1, image2):
 
 def compare(target):
     target = handle_name(target)
-    image_png = Image.open('./images/'+target+'.png')
+    image_png = Image.open('./src/images/'+target+'.png')
     matched_diff = sys.maxsize
     match = ''
     match_pos = None
