@@ -63,7 +63,7 @@ def cookie_string_to_mapping(text):
 
 
 def read_configuration_file():
-    with open('config.json') as file:
+    with open('./config.json') as file:
         arguments = json.load(file)
 
     part = arguments['participant']

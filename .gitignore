@@ -132,5 +132,4 @@ dmypy.json
 ./classifier/pieces/
 ./classifier/images/
 ./classifier/classified/
-config.json
 src/images/*.png
