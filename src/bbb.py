@@ -1,11 +1,11 @@
-from vote_bot import VoteBot
 import requests
-from utils import cookie_string_to_mapping, read_configuration_file
-from login_bot import login_bot
+import time
 import json
 import datetime
+from utils import cookie_string_to_mapping, read_configuration_file
+from login_bot import login_bot
+from vote_bot import VoteBot
 
-import logging
 
 
 if __name__ == "__main__":
@@ -19,14 +19,16 @@ if __name__ == "__main__":
     started_time = datetime.datetime.now()
     bot = VoteBot(session, participant)
     while True:
-        bot.start_session()
-        print()
-        bot.generate_captcha()
         try:
-            bot.captcha_verification()
-        except Exception as e:
-            print(e)
-            print('Captcha precisa ser adicionado na banco de imagens.')
-            continue
-        bot.vote()
-        print(f'Started time: {started_time}. Now: {datetime.datetime.now()}')
+            bot.start_session()
+            bot.generate_captcha()
+            try:
+                bot.captcha_verification()
+            except Exception as e:
+                print('Captcha precisa ser adicionado na banco de imagens.')
+                continue
+            bot.vote()
+            print(f'Started time: {started_time}. Now: {datetime.datetime.now()}')
+        except requests.exceptions.ConnectionError as e:
+            print("[-] Servidor da Globo sobrecarregado... Tentando de novo em 1 minuto.")
+            time.sleep(60)
