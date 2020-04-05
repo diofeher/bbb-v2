@@ -2,51 +2,48 @@ BBBot + OpenCV
 ===============
 
 Paredão dessa semana:
-Prior - 1
-Manu - 2
-Mari - 3
-
-
-Você precisa exportar duas variáveis para poder logar no site da Globo e uma para o participante que vai ser votado:
-
-Linux / Mac
-
 ```
-export GLOBO_USERNAME='your-email@globo.com'
-export GLOBO_PASSWORD='xxxxxxxxx'
-export PARTICIPANTE=3
+Babu - 1
+Gabi - 2
+Thelma - 3
 ```
 
-Windows PowerShell
+Você precisa editar o arquivo `config.json` com as seguintes informações:
 
 ```
-$env:GLOBO_USERNAME='your-email@globo.com'
-$env:GLOBO_PASSWORD='xxxxxxxxx'
-$env:PARTICIPANTE=3
+{
+  "participant": 2,
+  "credentials": {
+      "username": "email-da-sua-conta@globo.com",
+      "password": "12345678"
+  }
+}
 ```
 
 PARTICIPANTE se refere à posição do participante. Caso ele seja o primeiro da lista, colocar um 1,
 o do meio 2 e o último 3.
 
+
 INSTALAÇÃO NO WINDOWS
 =====================
 
-1) Instale a versão mais nova do node.js https://nodejs.org/en/download/
-2) Instale a versão 3.7.1 do Python hhttps://www.python.org/downloads/release/python-371/
-3) Rode o arquivo `instalador-windows.bat` para instalação de programas auxiliares
-4) Rode o bot com `rodar-windows.bat`. Um prompt será mostrado perguntando suas informações (conta/senha globo, participante que quer votar)
-5) Caso o bot dê problema, tente votar manualmente primeiro com sua conta só pra depois tentar utilizar o bot.
+
+1) Instale a versão 3.7.1 do Python https://www.python.org/downloads/release/python-371/
+2) Rode o arquivo `instalador-windows.bat` para instalação de programas auxiliares
+3) Rode o bot com `rodar-windows.bat`. Um prompt será mostrado perguntando suas informações (conta/senha globo, participante que quer votar)
+4) Caso o bot dê problema, tente votar manualmente primeiro com sua conta só pra depois tentar utilizar o bot.
+5) Caso o erro persista, só me mandar uma mensagem no https://twitter.com/diofeher
+
 
 INSTALAÇÃO EM MAC E LINUX
 =========================
 
-Instale o Python3 e o Node.JS
+Instale o Python3
 
-Depois de instalar essas duas dependências, rode os seguinte comandos:
+Depois de instalar, rode os seguinte comandos:
 
 ```
 pip3 install -r requirements.txt
-npm install
 ```
 
 Normalmente o Python2 já vem instalado nessas máquinas, então você precisa instalar o Python3 e ficar com as duas instalações.
@@ -54,7 +51,7 @@ Normalmente o Python2 já vem instalado nessas máquinas, então você precisa i
 Rodando o bot:
 
 ```
-npm start
+python3 bbb.py
 ```
 
 TREINAMENTO DO ALGORITMO
@@ -67,12 +64,8 @@ Esse bot é feito utilizando o SIFT do OpenCV. Algumas captchas não vão funcio
 3) É só puxar a versão correta pra images_individual como <simbolo>_numero.png que o programa vai identificar esse ícone
 4) Abra um pull request para atualizarmos aqui :)
 
-TODO
-=====
 
-  - Precisa melhorar em condições adversas (clique errado, dois cliques no captcha);
-  - Colocar no docker.hub;
-  - Cleanup das pastas de imagens;
+Série de vídeos explicando como o bot foi feito
+======================================================
 
-Inspirado no https://github.com/DanielHe4rt/bbbot/ porém usando uma abordagem diferente para quebrar o captcha.
-Obrigado! @DanielHe4rt
+No meu canal do youtube deixei uma série de vídeos explicando passo a passo como o bot foi feito, desde a parte da quebra do captcha até a parte de interação com o servidor de captcha e o de votações.
