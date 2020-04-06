@@ -1,0 +1,2 @@
+class GloboBlockingException(Exception):
+    pass
