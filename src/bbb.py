@@ -24,11 +24,10 @@ if __name__ == "__main__":
             bot.generate_captcha()
             try:
                 bot.captcha_verification()
-            except Exception as e:
+            except TypeError as e:
                 print('Captcha precisa ser adicionado na banco de imagens.')
                 continue
             bot.vote()
-            print(f'Started time: {started_time}. Now: {datetime.datetime.now()}')
         except requests.exceptions.ConnectionError as e:
             print("[-] Servidor da Globo sobrecarregado... Tentando de novo em 1 minuto.")
             time.sleep(60)
