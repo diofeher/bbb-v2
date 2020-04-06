@@ -6,7 +6,7 @@ import io
 from os import listdir
 from random import randint
 
-UNCLASSIFIED_PATH = './src/images/'
+UNCLASSIFIED_PATH = './src/images_unclassified/'
 SAVE_PATH = './src/images_individual/'
 
 
@@ -23,13 +23,13 @@ def openInterface(file_name):
     # add PhotoImage here to not garbage colector
     # https://stackoverflow.com/questions/33987792/tkinter-cant-open-multiple-photos-at-the-same-time-python
     protoImgArray = []
-    for _, sub_img in break_captcha(UNCLASSIFIED_PATH + 'sub/', icon, image):
+    for _, sub_img in break_captcha(None, icon, image):
         imgByteArr = io.BytesIO()
         sub_img.save(imgByteArr, format='GIF')
         imgByteArr = imgByteArr.getvalue()
         photoButton = ttk.PhotoImage(data=b64encode(imgByteArr))
         protoImgArray.append(photoButton)
-        ttk.Button(root, command=saveNewClassified(icon, sub_img),
+        ttk.Button(root, command=lambda: saveNewClassified(icon, sub_img, root.destroy),
                    image=photoButton).pack(side=ttk.LEFT, pady=5, padx=5)
     ttk.mainloop()
 
@@ -41,7 +41,8 @@ def runInFolder():
         openInterface(UNCLASSIFIED_PATH + f)
 
 
-def saveNewClassified(icon, image):
+def saveNewClassified(icon, image, endCallback):
+    endCallback()
     new_filename = f"{SAVE_PATH}{icon}_{randint(10000, 99999)}.png"
     image.save(new_filename)
 

@@ -2,10 +2,11 @@ import requests
 import time
 import json
 import datetime
-from utils import cookie_string_to_mapping, read_configuration_file
+from utils import cookie_string_to_mapping, read_configuration_file, save_image
 from login_bot import login_bot
 from vote_bot import VoteBot
 from colorama import Fore, Back
+from random import randint
 
 
 def user_session(username, password):
@@ -17,10 +18,12 @@ def user_session(username, password):
             print()
             try:
                 bot.start_session()
-                bot.generate_captcha()
+                captcha = bot.generate_captcha()
                 try:
                     bot.captcha_verification()
                 except TypeError as e:
+                    icon = captcha['symbol']
+                    save_image('./src/images_unclassified/', f'{icon}_{randint(10000, 99999)}', captcha['image'])
                     print('[-] Captcha adicionado a lista de não classificado, para aprimorar a quebra das capthas confira o README')
                     continue
                 bot.vote()

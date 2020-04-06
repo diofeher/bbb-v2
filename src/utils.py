@@ -35,7 +35,8 @@ def break_captcha(path, icon_name, image):
     for i, col in enumerate(range(0, total_width, int(width_icon))):
         coords = (col, 0, col+width_icon, total_height)
         image_icon = image.crop(coords)
-        # save_candidate_name(path, image_icon, icon_name, i)
+        if path != None:
+            save_candidate_name(path, image_icon, icon_name, i)
         yield icon_name, image_icon
 
 
