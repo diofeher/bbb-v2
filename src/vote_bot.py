@@ -172,7 +172,6 @@ class VoteBot(object):
         if hashcashZeros:
             self.hashcashZeros = hashcashZeros
 
-
         if response.status_code == 200:
             self.computedVotes += 1
             print(f"[+] Voto computado! Total de votos: {self.computedVotes}")
@@ -184,3 +183,5 @@ class VoteBot(object):
             print("[-] Votação Fechada.")
         elif response.status_code == 503:
             print("[-] Serviço indisponível.")
+        else:
+            print(f"[-] Erro desconhecido {response.status_code}. Resposta: {response.text}")
