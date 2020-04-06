@@ -8,6 +8,7 @@ from utils import save_image, cookie_string_to_mapping
 from proof_of_work import break_proof_of_work
 import urllib.parse
 from compare_images import compare
+from errors import GloboBlockingException
 import time
 import colorama
 from colorama import Fore, Back
@@ -174,16 +175,24 @@ class VoteBot(object):
         if hashcashZeros:
             self.hashcashZeros = hashcashZeros
 
+            if int(hashcashZeros) >= 7:
+                print(Fore.RED + f"[-] A Globo está pedindo uma proof of work gigante ({hashcashZeros}) pra esse usuário, tentando o próximo...")
+                raise GloboBlockingException
+
         if response.status_code == 200:
             self.computedVotes += 1
             print(Fore.GREEN + f"[+] Voto computado! Total de votos: {self.computedVotes}")
         elif response.status_code == 403:
             print(Fore.RED + "[-] Erro de autorização ou captcha inválido!")
+        elif response.status_code == 406:
+            print(Fore.RED + "[-] Tentativa de bloqueio de voto, erro 406.")
+            raise GloboBlockingException
         elif response.status_code == 422:
             print(Fore.RED + "[-] Proof of Work Inválido.")
         elif response.status_code == 410:
             print(Fore.RED + "[-] Votação Fechada.")
         elif response.status_code == 503:
             print("[-] Serviço indisponível.")
+
         else:
             print(Fore.RED + f"[-] Erro desconhecido {response.status_code}, Resposta: {response.text}")

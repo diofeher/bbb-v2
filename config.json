@@ -1,7 +1,13 @@
 {
   "participant": 3,
-  "credentials": {
+  "credentials": [
+    {
       "username": "",
       "password": ""
-  }
+    },
+    {
+      "username": "",
+      "password": ""
+    }
+  ]
 }
