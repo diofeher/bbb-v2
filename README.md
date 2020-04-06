@@ -10,15 +10,39 @@ Marcela - 3
 
 Você precisa editar o arquivo `config.json` com as seguintes informações:
 
+Se tiver somente uma conta, use o seguinte formato:
+
 ```
 {
-  "participant": 2,
-  "credentials": {
+  "participant": 3,
+  "credentials": [
+    {
       "username": "email-da-sua-conta@globo.com",
       "password": "12345678"
-  }
+    }
+  ]
 }
 ```
+
+Se tiver somente mais de uma conta, use o seguinte formato:
+
+```
+{
+  "participant": 3,
+  "credentials": [
+    {
+      "username": "jackiechan@globo.com",
+      "password": "12345678"
+    },
+    {
+      "username": "brucelee@globo.com",
+      "password": "12345678"
+    }
+  ]
+}
+```
+
+
 
 PARTICIPANTE se refere à posição do participante. Caso ele seja o primeiro da lista, colocar um 1,
 o do meio 2 e o último 3.

@@ -1,7 +1,13 @@
 {
   "participant": 3,
-  "credentials": {
-      "username": "jojo.guiss@hotmail.com",
-      "password": "123456789"
-  }
+  "credentials": [
+    {
+      "username": "",
+      "password": ""
+    },
+    {
+      "username": "",
+      "password": ""
+    }
+  ]
 }

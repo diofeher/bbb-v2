@@ -1,6 +1,7 @@
 # coding: utf-8
 import requests
 import json
+from colorama import Fore
 
 
 def login_bot(email, password):
@@ -22,13 +23,13 @@ def login_bot(email, password):
     }
 
     session = requests.Session()
-    print("[+] Fazendo login...")
+    print("[+] Fazendo login com "+ Fore.LIGHTBLUE_EX + email)
     response = session.post('https://login.globo.com/api/authentication', headers=headers, json=data)
 
     HIDDEN = 80
     if response.status_code != 200:
-        raise Exception("Login não foi feito com sucesso, tente de novo.")
+        raise Exception(Fore.RED + "Login não foi feito com sucesso, tente de novo.")
     else:
-        print(f"[+] Login feito com sucesso... ID: {response.cookies['GLBID'][:-HIDDEN]}{'*'*HIDDEN}")
+        print(Fore.GREEN + f"[+] Login feito com sucesso... ID: {response.cookies['GLBID'][:-HIDDEN]}{'*'*HIDDEN}")
 
     return session

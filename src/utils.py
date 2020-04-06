@@ -4,6 +4,7 @@ import string
 import base64
 import json
 import unicodedata
+from colorama import Fore
 
 
 SIZE = 5
@@ -69,8 +70,10 @@ def read_configuration_file():
     if part not in [1,2,3]:
         raise Exception("Você precisa escolher entre 1, 2 e 3 no config.json para votar.")
 
-    username = arguments['credentials']['username']
-    password = arguments['credentials']['password']
-    if not username or not password:
-        raise Exception("Você precisa preencher o nome de usuário e senha.")
+    credentials = arguments['credentials']
+    try:
+        username = credentials[0]['username']
+        password = credentials[0]['password']
+    except IndexError as e:
+        raise Exception(Fore.RED + "Você precisa preencher pelo menos um nome de usuário e senha.")
     return arguments
