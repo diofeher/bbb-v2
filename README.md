@@ -69,3 +69,5 @@ Série de vídeos explicando como o bot foi feito
 ======================================================
 
 No meu canal do youtube deixei uma série de vídeos explicando passo a passo como o bot foi feito, desde a parte da quebra do captcha até a parte de interação com o servidor de captcha e o de votações.
+
+https://www.youtube.com/watch?v=ABBy8vPZ_aU&list=PLKGzzk4_BYu0XkTs_xEyvMLolL-hndSHS
