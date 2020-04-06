@@ -54,7 +54,7 @@ class VoteBot(object):
 
 
     def start_session(self):
-        print(Fore.GREEN + '[+] Iniciando configuração de sessão...')
+        print('[+] Iniciando configuração de sessão...')
 
         params = {
             'zeros': self.hashcashZeros,
@@ -104,7 +104,7 @@ class VoteBot(object):
         self.option = compare(self.symbol)
         y = 30
         x = 53 * self.option + 25
-        print(f"Posição de clique (X: {x}, Y: {y})")
+        print(f"\tPosição de clique (X: {x}, Y: {y})")
 
         params = {
             'appId': self.appId,
