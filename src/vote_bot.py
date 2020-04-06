@@ -187,3 +187,5 @@ class VoteBot(object):
             print(Fore.RED + "[-] Votação Fechada.")
         elif response.status_code == 503:
             print(Fore.RED + "[-] Serviço indisponível.")
+        else:
+            print(Fore.RED + f"[-] Erro desconhecido {response.status_code}, Resposta: {response.text}")
