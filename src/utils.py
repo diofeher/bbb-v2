@@ -46,7 +46,6 @@ def handle_name(data):
 
 def save_image(folder, icon, data_b64):
     filename = f"{folder}{handle_name(icon)}.png"
-    print(filename)
     with open(filename, "wb") as fh:
         fh.write(base64.urlsafe_b64decode(data_b64))
 

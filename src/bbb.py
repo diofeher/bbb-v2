@@ -19,6 +19,7 @@ if __name__ == "__main__":
     started_time = datetime.datetime.now()
     bot = VoteBot(session, participant)
     while True:
+        print()
         try:
             bot.start_session()
             bot.generate_captcha()
