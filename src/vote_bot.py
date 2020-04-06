@@ -175,7 +175,7 @@ class VoteBot(object):
         if response.status_code == 200:
             self.computedVotes += 1
             print(f"[+] Voto computado! Total de votos: {self.computedVotes}")
-        if response.status_code == 403:
+        elif response.status_code == 403:
             print("[-] Erro de autorização ou captcha inválido!")
         elif response.status_code == 422:
             print("[-] Proof of Work Inválido.")
