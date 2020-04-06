@@ -9,7 +9,10 @@ from proof_of_work import break_proof_of_work
 import urllib.parse
 from compare_images import compare
 import time
+import colorama
+from colorama import Fore, Back
 
+colorama.init(autoreset=True)
 
 SECONDS_TO_WAIT = 3
 VOTES = 0
@@ -51,7 +54,7 @@ class VoteBot(object):
 
 
     def start_session(self):
-        print('[+] Iniciando configuração de sessão...')
+        print(Fore.GREEN + '[+] Iniciando configuração de sessão...')
 
         params = {
             'zeros': self.hashcashZeros,
@@ -117,7 +120,6 @@ class VoteBot(object):
         }
 
 
-
         data = {
             'payload': json.dumps(payload_data).replace(' ', '')
         }
@@ -174,14 +176,14 @@ class VoteBot(object):
 
         if response.status_code == 200:
             self.computedVotes += 1
-            print(f"[+] Voto computado! Total de votos: {self.computedVotes}")
+            print(Fore.GREEN + f"[+] Voto computado! Total de votos: {self.computedVotes}")
         elif response.status_code == 403:
-            print("[-] Erro de autorização ou captcha inválido!")
+            print(Fore.RED + "[-] Erro de autorização ou captcha inválido!")
         elif response.status_code == 422:
-            print("[-] Proof of Work Inválido.")
+            print(Fore.RED + "[-] Proof of Work Inválido.")
         elif response.status_code == 410:
-            print("[-] Votação Fechada.")
+            print(Fore.RED + "[-] Votação Fechada.")
         elif response.status_code == 503:
             print("[-] Serviço indisponível.")
         else:
-            print(f"[-] Erro desconhecido {response.status_code}. Resposta: {response.text}")
+            print(Fore.RED + f"[-] Erro desconhecido {response.status_code}, Resposta: {response.text}")
