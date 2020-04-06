@@ -13,7 +13,7 @@ import time
 
 SECONDS_TO_WAIT = 3
 VOTES = 0
-POOL = 'd4846f06-6560-4991-a1a8-934a037bc1f3'
+POOL = 'cae964f6-e909-471b-bf8c-a36284b1992f'
 ROYALE_URL = 'royale.globo.com'
 
 CAPTCHA_URL = f'https://{ROYALE_URL}/polls/{POOL}/session'
