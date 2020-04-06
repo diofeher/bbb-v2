@@ -21,9 +21,6 @@ CAPTCHA_VERIFY_URL = 'http://captcha.globo.com/api/challenge/verify'
 CAPTCHA_GENERATE_URL = 'https://captcha.globo.com/api/challenge/generate'
 VOTE_URL = f'https://{ROYALE_URL}/polls/{POOL}/votes'
 
-VOTE_HTML_URL = 'https://globoesporte.globo.com/futebol/times/corinthians/votacao/qual-o-gol-mais-bonito-da-historia-do-corinthians-a3d05547-72b3-445c-9038-318567069019.ghtml'
-
-
 
 class VoteBot(object):
     def __init__(self, session, participant):
@@ -40,7 +37,6 @@ class VoteBot(object):
         self.session = session
         self.headers = {
             'content-type': 'text/plain;charset=UTF-8',
-            'referer': VOTE_HTML_URL,
             'sec-fetch-dest': 'empty',
             'sec-fetch-mode': 'cors',
             'sec-fetch-site': 'same-site',
