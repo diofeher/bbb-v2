@@ -9,6 +9,7 @@ from proof_of_work import break_proof_of_work
 import urllib.parse
 from compare_images import compare
 import time
+from random import randint
 import colorama
 from colorama import Fore, Back
 
@@ -95,7 +96,7 @@ class VoteBot(object):
 
         self.symbol = response_data['data']['symbol']
         self.captchaSessionToken = response_data['sessionToken']
-        save_image('./src/images/', self.symbol, response_data['data']['image'])
+        save_image('./src/images/', self.symbol + randint(10000, 99999), response_data['data']['image'])
         return response_data['data']
 
 

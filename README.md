@@ -43,6 +43,7 @@ Instale o Python3
 Depois de instalar, rode os seguinte comandos:
 
 ```
+sudo apt-get install python3-tk
 pip3 install -r requirements.txt
 ```
 
@@ -59,9 +60,9 @@ TREINAMENTO DO ALGORITMO
 
 Esse bot é feito utilizando o SIFT do OpenCV. Algumas captchas não vão funcionar corretamente pois não temos todas as imagens do banco. Para ajudar nesse mapeamento, faça o seguinte:
 
-1) Ele vai baixar um captcha com um nome. Esse arquivo vai ser salvo em `images/<simbolo>.png`
-2) O programa vai cortar o captcha em 5 pedaços e renomear cada pra: images/<simbolo>_numero.png
-3) É só puxar a versão correta pra images_individual como <simbolo>_numero.png que o programa vai identificar esse ícone
+1) As imagens que não foram resolvidas ficam salvas em `images_nao_classificadas`
+2) Execute `python3 src/classifier_v2.py`
+3) É só clicar na imagens correta e ela fica salva pra proxima
 4) Abra um pull request para atualizarmos aqui :)
 
 

@@ -5,6 +5,7 @@ import datetime
 from utils import cookie_string_to_mapping, read_configuration_file
 from login_bot import login_bot
 from vote_bot import VoteBot
+from classifier_v2 import add_unclassified
 
 
 
@@ -22,11 +23,12 @@ if __name__ == "__main__":
         print()
         try:
             bot.start_session()
-            bot.generate_captcha()
+            captha = bot.generate_captcha()
             try:
                 bot.captcha_verification()
             except TypeError as e:
-                print('Captcha precisa ser adicionado na banco de imagens.')
+                print('[-] Captcha adicionado a lista de não classificado')
+                add_unclassified(captha)
                 continue
             bot.vote()
         except requests.exceptions.ConnectionError as e:
