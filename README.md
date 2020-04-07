@@ -99,6 +99,7 @@ https://www.youtube.com/watch?v=ABBy8vPZ_aU&list=PLKGzzk4_BYu0XkTs_xEyvMLolL-hnd
 
 Contribuidores
 ================
-
+  - [JAG](https://twitter.com/ze_helo)
   - [Nicolas França](https://twitter.com/NicolasFrancaX/)
   - [Rafael Chaguri](https://twitter.com/RafaelChaguri)
+  
