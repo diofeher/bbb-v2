@@ -3,12 +3,13 @@ import requests
 import time
 import json
 import datetime
+import sys
 from utils import cookie_string_to_mapping, read_configuration_file
 from login_bot import login_bot
 from vote_bot import VoteBot
 from colorama import Fore, Back
-
-
+from get_pool import get_pool
+from vote_bot import getpool
 def user_session(username, password):
     print()
     try:
@@ -36,8 +37,24 @@ def user_session(username, password):
 
 if __name__ == "__main__":
     config = read_configuration_file()
+    print()
+    while True:
+        try:
+           opcaovoto = int(sys.argv[1])
+        except:
+                opcaovoto = input(Fore.GREEN + f"Em quem quer votar? ("+getpool[1]+" = 1 /"+getpool[2]+" = 2 /"+getpool[3]+" = 3): ")
 
-    participant = config['participant']
+        try:
+            participant = int(opcaovoto)
+            if participant > 0 and participant < 4:
+                nomevoto = getpool[participant]
+                if nomevoto == "babu":
+                    nomevoto = "babu :'("
+                print("Votando na opção:",opcaovoto," ",nomevoto)
+                time.sleep(5)
+                break
+        except ValueError:
+            pass
     while True:
         for cred in config['credentials']:
             username = cred['username']

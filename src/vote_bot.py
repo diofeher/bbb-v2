@@ -12,19 +12,19 @@ from errors import GloboBlockingException
 import time
 import colorama
 from colorama import Fore, Back
-
+from get_pool import get_pool
 colorama.init(autoreset=True)
 
 SECONDS_TO_WAIT = 3
 VOTES = 0
-POOL = 'cae964f6-e909-471b-bf8c-a36284b1992f'
+getpool = get_pool()
+POOL = getpool[0]
 ROYALE_URL = 'royale.globo.com'
 
 CAPTCHA_URL = f'https://{ROYALE_URL}/polls/{POOL}/session'
 CAPTCHA_VERIFY_URL = 'http://captcha.globo.com/api/challenge/verify'
 CAPTCHA_GENERATE_URL = 'https://captcha.globo.com/api/challenge/generate'
 VOTE_URL = f'https://{ROYALE_URL}/polls/{POOL}/votes'
-
 
 class VoteBot(object):
     def __init__(self, session, participant):
