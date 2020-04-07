@@ -12,8 +12,9 @@ from errors import GloboBlockingException
 import time
 import colorama
 from colorama import Fore, Back
-from get_pool import get_pool
+from pools import get_pool
 colorama.init(autoreset=True)
+
 
 SECONDS_TO_WAIT = 3
 VOTES = 0
