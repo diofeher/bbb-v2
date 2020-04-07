@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # BOTs
-./classifier/pieces/
-./classifier/images/
-./classifier/classified/
+src/classifier/pieces/*
+src/classifier/images/*
+src/classifier/classified/*
 src/images/*.png

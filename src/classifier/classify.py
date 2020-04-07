@@ -4,8 +4,8 @@ import random
 import os
 import readline
 
-READ_PATH = './classifier/pieces/'
-SAVE_PATH = './classifier/classified/'
+READ_PATH = './src/classifier/pieces/'
+SAVE_PATH = './src/classifier/classified/'
 
 SOLVED = [
     'ampulheta', 'ancora', 'anel', 'apito', 'arco e flecha', 'aviao', 'balao',
