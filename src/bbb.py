@@ -2,6 +2,7 @@ import requests
 import time
 import json
 import datetime
+import sys
 from utils import cookie_string_to_mapping, read_configuration_file
 from login_bot import login_bot
 from vote_bot import VoteBot
@@ -37,10 +38,23 @@ if __name__ == "__main__":
     config = read_configuration_file()
     print()
     while True:
-        opcaovoto = input(Fore.GREEN + f"Em quem quer votar? ("+getpool[1]+" = 1 /"+getpool[2]+" = 2 /"+getpool[3]+" = 3):")
+        try:
+           opcaoauto = int(sys.argv[1])
+           if opcaoauto >= 1:
+              #  print("Votando na opção:",opcaoauto," (",getpool[opcaoauto],")")
+                time.sleep(3)
+                opcaovoto = sys.argv[1]
+        except:
+                opcaovoto = input(Fore.GREEN + f"Em quem quer votar? ("+getpool[1]+" = 1 /"+getpool[2]+" = 2 /"+getpool[3]+" = 3): ")
+
         try:
             participant = int(opcaovoto)
             if participant > 0 and participant < 4:
+                nomevoto = getpool[participant]
+                if nomevoto == "babu":
+                    nomevoto = "babu :'("
+                print("Votando na opção:",opcaovoto," ",nomevoto)
+                time.sleep(5)
                 break
         except ValueError:
             pass
