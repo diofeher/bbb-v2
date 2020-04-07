@@ -6,8 +6,8 @@ from utils import cookie_string_to_mapping, read_configuration_file
 from login_bot import login_bot
 from vote_bot import VoteBot
 from colorama import Fore, Back
-
-
+from get_pool import get_pool
+from vote_bot import getpool
 def user_session(username, password):
     print()
     try:
@@ -35,8 +35,15 @@ def user_session(username, password):
 
 if __name__ == "__main__":
     config = read_configuration_file()
-
-    participant = config['participant']
+    print()
+    while True:
+        opcaovoto = input(Fore.GREEN + f"Em quem quer votar? ("+getpool[1]+" = 1 /"+getpool[2]+" = 2 /"+getpool[3]+" = 3):")
+        try:
+            participant = int(opcaovoto)
+            if participant > 0 and participant < 4:
+                break
+        except ValueError:
+            pass
     while True:
         for cred in config['credentials']:
             username = cred['username']
