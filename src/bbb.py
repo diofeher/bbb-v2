@@ -39,11 +39,7 @@ if __name__ == "__main__":
     print()
     while True:
         try:
-           opcaoauto = int(sys.argv[1])
-           if opcaoauto >= 1:
-              #  print("Votando na opção:",opcaoauto," (",getpool[opcaoauto],")")
-                time.sleep(3)
-                opcaovoto = sys.argv[1]
+           opcaovoto = int(sys.argv[1])
         except:
                 opcaovoto = input(Fore.GREEN + f"Em quem quer votar? ("+getpool[1]+" = 1 /"+getpool[2]+" = 2 /"+getpool[3]+" = 3): ")
 
