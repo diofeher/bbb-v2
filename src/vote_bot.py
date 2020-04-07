@@ -16,7 +16,8 @@ from pools import get_pool
 colorama.init(autoreset=True)
 
 
-SECONDS_TO_WAIT = 3
+SECONDS_TO_WAIT = 6
+HASHZEROS_LIMIT = 6
 VOTES = 0
 getpool = get_pool()
 POOL = getpool[0]
@@ -176,7 +177,7 @@ class VoteBot(object):
         if hashcashZeros:
             self.hashcashZeros = hashcashZeros
 
-            if int(hashcashZeros) >= 7:
+            if int(hashcashZeros) >= HASHZEROS_LIMIT:
                 print(Fore.RED + f"[-] A Globo está pedindo uma proof of work gigante ({hashcashZeros}) pra esse usuário, tentando o próximo...")
                 raise GloboBlockingException
 
