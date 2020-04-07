@@ -1,4 +1,5 @@
 # coding: utf-8
+import logging
 import sys
 import random
 import copy
@@ -16,7 +17,7 @@ from pools import get_pool
 colorama.init(autoreset=True)
 
 
-SECONDS_TO_WAIT = 6
+MAX_SECONDS_TO_WAIT = 550 # dividido por 100
 HASHZEROS_LIMIT = 6
 VOTES = 0
 getpool = get_pool()
@@ -27,7 +28,8 @@ CAPTCHA_URL = f'https://{ROYALE_URL}/polls/{POOL}/session'
 CAPTCHA_VERIFY_URL = 'http://captcha.globo.com/api/challenge/verify'
 CAPTCHA_GENERATE_URL = 'https://captcha.globo.com/api/challenge/generate'
 VOTE_URL = f'https://{ROYALE_URL}/polls/{POOL}/votes'
-
+logFile = 'total.log'
+logging.basicConfig( filename = logFile,filemode = 'a',level = logging.INFO)
 class VoteBot(object):
     def __init__(self, session, participant):
         self.appId = ''
@@ -62,8 +64,8 @@ class VoteBot(object):
         params = {
             'zeros': self.hashcashZeros,
         }
-
-        time.sleep(SECONDS_TO_WAIT)
+        random_decimal1 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+        time.sleep(random_decimal1)
         response = self.session.get(
             CAPTCHA_URL,
             headers=self.headers,
@@ -75,8 +77,8 @@ class VoteBot(object):
         self.captchaSession = response_data['session']
         self.hashcash = response.headers['x-hashcash']
 
-
-    def generate_captcha(self, wait_time=SECONDS_TO_WAIT):
+    random_decimal2 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+    def generate_captcha(self, wait_time=random_decimal2):
         print('[+] Pegar captcha da Globo')
 
         headers = copy.copy(self.headers)
@@ -129,8 +131,8 @@ class VoteBot(object):
 
         headers = copy.copy(self.headers)
         del headers['content-type']
-
-        time.sleep(SECONDS_TO_WAIT)
+        random_decimal3 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+        time.sleep(random_decimal3)
         response = self.session.post(
             CAPTCHA_VERIFY_URL,
             headers=headers,
@@ -164,8 +166,8 @@ class VoteBot(object):
             'Content-Type': 'text/plain',
             'Origin': 'https://globoesporte.globo.com',
         }
-
-        time.sleep(SECONDS_TO_WAIT)
+        random_decimal4 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+        time.sleep(random_decimal4)
         response = self.session.post(
             VOTE_URL,
             headers=headers,
@@ -184,6 +186,7 @@ class VoteBot(object):
         if response.status_code == 200:
             self.computedVotes += 1
             print(Fore.GREEN + f"[+] Voto computado! Total de votos: {self.computedVotes}")
+            logging.info('VOTO')
         elif response.status_code == 403:
             print(Fore.RED + "[-] Erro de autorização ou captcha inválido!")
         elif response.status_code == 406:
