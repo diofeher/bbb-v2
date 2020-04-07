@@ -1,44 +1,16 @@
 {
   "credentials": [
     {
-      "username": "deanlima@painel1.com.br",
-      "password": "89898989"
+      "username": "",
+      "password": ""
     },
     {
-      "username": "mariadobairro@painel1.com.br",
-      "password": "90909090"
+      "username": "",
+      "password": ""
     },
     {
-      "username": "samuelsilva@painel1.com.br",
-      "password": "12121212"
-    },
-    {
-      "username": "gabrielamonteiro@painel1.com.br",
-      "password": "23232323"
-    },
-    {
-      "username": "brunaselva@painel1.com.br",
-      "password": "12341234"
-    },
-    {
-      "username": "RafaelCostaSilva@painel1.com.br",
-      "password": "11111111"
-    },
-    {
-      "username": "MaiconDiequisson@painel1.com.br",
-      "password": "99999999"
-    },
-    {
-      "username": "FelipeCaruso@painel1.com.br",
-      "password": "77777777"
-    },
-    {
-      "username": "matheuscouto@painel1.com.br",
-      "password": "D0xWGRkWCq"
-    },
-    {
-      "username": "rodrigogiano@yahoo.com",
-      "password": "XddW0C5hsO"
+      "username": "",
+      "password": ""
     }
   ]
 }
