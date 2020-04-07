@@ -60,21 +60,3 @@ def cookie_string_to_mapping(text):
     for key, morsel in cookie.items():
         cookies[key] = morsel.value
     return cookies
-
-
-def read_configuration_file():
-    with open('./config.json') as file:
-        arguments = json.load(file)
-
-    credentials = arguments['credentials']
-    part = arguments['participant']
-
-    if part not in [1,2,3]:
-        raise Exception("Você precisa escolher entre 1, 2 e 3 no config.json para votar.")
-
-    try:
-        username = credentials[0]['username']
-        password = credentials[0]['password']
-    except IndexError as e:
-        raise Exception(Fore.RED + "Você precisa preencher pelo menos um nome de usuário e senha.")
-    return arguments

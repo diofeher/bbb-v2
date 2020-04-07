@@ -11,7 +11,7 @@ from colorama import Fore, Back
 from pools import get_pool
 from vote_bot import getpool
 def read_configuration_file():
-    with open('./config.json') as file:
+    with open('./config2.json') as file:
         arguments = json.load(file)
 
     credentials = arguments['credentials']
