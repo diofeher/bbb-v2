@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>M.AutoInit();</script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="../static/materialize.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>BBB BOT V3</title>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
+
+    <div id="content">
+        <div id="wargames">
+            <pre><code>
+OLÁ
+COMO VOCE ESTA SE SENTINDO HOJE?
+VAMOS HACKEAR O BBB?
+         
+
+</pre></code>
+<a href="\start" class="btn-floating">START</i></a>
+<a href="\stop" class="btn-floating">STOP</a>
+              </div>
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var url = 'http://127.0.0.1:5001/';
+            fetch(url, { mode: 'no-cors' });
+            setInterval(function () { fetch(url, { mode: 'no-cors' }); }, 5000)();
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

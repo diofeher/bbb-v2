@@ -4,11 +4,11 @@ from colorama import Fore, Back
 import os
 import threading
 atualizacao = 5.0 #segundos
+colorama.init(autoreset=True)
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
-cls() 
-colorama.init(autoreset=True)
+
 def line_count(fname):
     return sum(1 for line in open(fname))
    
@@ -21,5 +21,6 @@ def printit():
     print(Fore.RED + "[*]Total: "+ str(votox))
     banner = pyfiglet.figlet_format(str(votox))
     print(Fore.GREEN +banner)
-
+    
+cls() 
 printit()
