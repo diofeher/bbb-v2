@@ -67,11 +67,12 @@ def read_configuration_file():
     with open('./config.json') as file:
         arguments = json.load(file)
 
+    credentials = arguments['credentials']
     part = arguments['participant']
+
     if part not in [1,2,3]:
         raise Exception("Você precisa escolher entre 1, 2 e 3 no config.json para votar.")
 
-    credentials = arguments['credentials']
     try:
         username = credentials[0]['username']
         password = credentials[0]['password']

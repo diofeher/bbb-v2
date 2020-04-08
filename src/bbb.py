@@ -1,3 +1,4 @@
+# coding: utf-8
 import requests
 import time
 import json
@@ -6,13 +7,17 @@ from utils import cookie_string_to_mapping, read_configuration_file, save_image
 from login_bot import login_bot
 from vote_bot import VoteBot
 from colorama import Fore, Back
+from pools import get_pool
+from vote_bot import getpool
 from random import randint
+import sys
 
 
-def user_session(username, password):
+def user_session(username, password, participant):
     print()
     try:
         session = login_bot(username, password)
+
         bot = VoteBot(session, participant)
         while True:
             print()
@@ -38,10 +43,9 @@ def user_session(username, password):
 
 if __name__ == "__main__":
     config = read_configuration_file()
-
-    participant = config['participant']
+    print()
     while True:
         for cred in config['credentials']:
             username = cred['username']
             password = cred['password']
-            user_session(username, password)
+            user_session(username, password, config['participant'])
