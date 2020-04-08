@@ -6,11 +6,6 @@ Config 1 para RodarWindows1
 
 Use o Multi Instance Watcher para somar todos Votos !
 Paredão dessa semana:
-```
-Babu - 1
-Flayslane - 2
-Marcela - 3
-```
 
 Você precisa editar o arquivo `config.json` com as seguintes informações:
 
@@ -95,7 +90,6 @@ Esse bot é feito utilizando o SIFT do OpenCV. Algumas captchas não vão funcio
 
 Dev
 ================
-Bot original = https://github.com/diofeher/bbb-v2
   - [JAG](https://twitter.com/ze_helo)
   - [Nicolas França](https://twitter.com/NicolasFrancaX/)
   - [Rafael Chaguri](https://twitter.com/RafaelChaguri)
