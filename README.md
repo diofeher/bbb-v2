@@ -1,12 +1,11 @@
-BBBot + OpenCV
+BBBot V3
 ===============
+Cada config é referente a uma instance executada.
+Config0 para RodarWindows0
+Config 1 para RodarWindows1
 
+Use o Multi Instance Watcher para somar todos Votos !
 Paredão dessa semana:
-```
-Babu - 1
-Flayslane - 2
-Marcela - 3
-```
 
 Você precisa editar o arquivo `config.json` com as seguintes informações:
 
@@ -46,6 +45,7 @@ Se tiver somente mais de uma conta, use o seguinte formato:
 
 PARTICIPANTE se refere à posição do participante. Caso ele seja o primeiro da lista, colocar um 1,
 o do meio 2 e o último 3.
+ 
 
 
 INSTALAÇÃO NO WINDOWS
@@ -88,16 +88,7 @@ Esse bot é feito utilizando o SIFT do OpenCV. Algumas captchas não vão funcio
 3) É só puxar a versão correta pra images_individual como <simbolo>_numero.png que o programa vai identificar esse ícone
 4) Abra um pull request para atualizarmos aqui :)
 
-
-Série de vídeos explicando como o bot foi feito
-======================================================
-
-No meu canal do youtube deixei uma série de vídeos explicando passo a passo como o bot foi feito, desde a parte da quebra do captcha até a parte de interação com o servidor de captcha e o de votações.
-
-https://www.youtube.com/watch?v=ABBy8vPZ_aU&list=PLKGzzk4_BYu0XkTs_xEyvMLolL-hndSHS
-
-
-Contribuidores
+Dev
 ================
   - [JAG](https://twitter.com/ze_helo)
   - [Nicolas França](https://twitter.com/NicolasFrancaX/)
