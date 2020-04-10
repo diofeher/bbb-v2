@@ -6,23 +6,10 @@ import readline
 
 READ_PATH = './src/classifier/pieces/'
 SAVE_PATH = './src/classifier/classified/'
+CAPTCHAS_TXT = './src/classifier/list_captchas.txt'
 
-SOLVED = [
-    'ampulheta', 'ancora', 'anel', 'apito', 'arco e flecha', 'aviao', 'balao',
-    'baleia', 'bandeira', 'barco', 'bicicleta', 'bigode', 'bolo', 'bolsa', 'bota',
-    'cabelo', 'cachorro', 'cadeado', 'cadeira', 'caixa', 'calca', 'calendario',
-    'camera', 'caminhao', 'caneca', 'carrinho de bebe', 'carro', 'cartao', 'casa',
-    'cavalo', 'celular', 'chapeu', 'chave', 'churrasqueira', 'colher', 'comida japonesa', 'computador', 'copo', 'coracao', 'coroa', 'dado', 'despertador',
-    'diamante', 'dinossauro', 'disquete', 'elefante', 'engrenagem', 'envelope',
-    'escadas', 'esquadro', 'faca', 'ferramenta', 'flor', 'fogo', 'folha', 'fone de ouvido', 'formiga', 'futebol', 'garrafa', 'gato', 'girafa', 'gota', 'guarda-chuva', 'halter', 'helicoptero', 'impressora', 'instrumento musical', 'janela', 'lampada', 'lanterna', 'lapis', 'letra', 'livro', 'lixeira', 'lua',
-    'luminaria', 'mala', 'mao', 'martelo', 'mascara', 'meia', 'mesa', 'microfone',
-    'mochila', 'moeda', 'moto', 'navio', 'neve', 'nota musical', 'numero', 'nuvem',
-    'oculos', 'olho', 'onda', 'onibus', 'pao', 'passaro', 'peixe', 'pessoa',
-    'peteca', 'pia', 'pincel', 'piramide', 'placa', 'planeta', 'pocao', 'porta',
-    'predio', 'raquete', 'relogio', 'robo', 'secador de cabelo', 'semaforo',
-    'seta', 'sino', 'sofa', 'sol', 'sorvete', 'tanque militar', 'telefone',
-    'trofeu', 'tv', 'ventilador',
-]
+with open(CAPTCHAS_TXT, 'r') as fp:
+    SOLVED = [i.strip() for i in fp.readlines()]
 
 captchas = set([i.split('_')[0] for i in os.listdir(READ_PATH)])
 [captchas.add(c) for c in SOLVED]

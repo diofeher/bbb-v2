@@ -19,8 +19,9 @@ colorama.init(autoreset=True)
 SECONDS_TO_WAIT = 6
 HASHZEROS_LIMIT = 6
 VOTES = 0
-getpool = get_pool()
-POOL = getpool[0]
+# getpool = get_pool()
+# POOL = getpool[0]
+POOL = 'bcf52c26-9580-4d10-9c20-4f880d286778'
 ROYALE_URL = 'royale.globo.com'
 
 CAPTCHA_URL = f'https://{ROYALE_URL}/polls/{POOL}/session'
@@ -73,7 +74,7 @@ class VoteBot(object):
 
         self.appId = response_data['configuration']['appId']
         self.captchaSession = response_data['session']
-        self.hashcash = response.headers['x-hashcash']
+        self.hashcash = response.headers.get('x-hashcash', '')
 
 
     def generate_captcha(self, wait_time=SECONDS_TO_WAIT):

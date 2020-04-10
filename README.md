@@ -78,15 +78,30 @@ Rodando o bot:
 python3 src/bbb.py
 ```
 
-TREINAMENTO DO ALGORITMO
-========================
+
+TREINAMENTO DO BANCO DE DADOS
+=============================
 
 Esse bot é feito utilizando o SIFT do OpenCV. Algumas captchas não vão funcionar corretamente pois não temos todas as imagens do banco. Para ajudar nesse mapeamento, faça o seguinte:
 
-1) Ele vai baixar um captcha com um nome. Esse arquivo vai ser salvo em `images/<simbolo>.png`
-2) O programa vai cortar o captcha em 5 pedaços e renomear cada pra: images/<simbolo>_numero.png
-3) É só puxar a versão correta pra images_individual como <simbolo>_numero.png que o programa vai identificar esse ícone
-4) Abra um pull request para atualizarmos aqui :)
+```
+export PYTHONPATH="$(pwd):$PYTHONPATH"
+python3 src/classifier/download_images.py
+```
+
+Aperte ctrl+c depois de ter baixado alguns captchas. O comando seguinte vai quebrar as imagens em 5 imagens diferentes.
+
+```
+python3 src/classifier/break_images.py
+```
+
+O comando seguinte vai te permitir renomear a imagem:
+
+```
+python3 src/classifier/classify.py
+```
+
+Depois de ter terminado, coloque todas as imagens que estão em `classified` no `images_individual`
 
 
 Série de vídeos explicando como o bot foi feito
@@ -95,6 +110,12 @@ Série de vídeos explicando como o bot foi feito
 No meu canal do youtube deixei uma série de vídeos explicando passo a passo como o bot foi feito, desde a parte da quebra do captcha até a parte de interação com o servidor de captcha e o de votações.
 
 https://www.youtube.com/watch?v=ABBy8vPZ_aU&list=PLKGzzk4_BYu0XkTs_xEyvMLolL-hndSHS
+
+
+Link do Discord
+================
+
+https://discord.gg/uJkyKUX
 
 
 Contribuidores

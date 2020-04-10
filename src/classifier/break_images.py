@@ -4,8 +4,8 @@ import math
 import os
 from utils import list_individual_images, break_captcha, save_candidate_name
 
-READ_PATH = './classifier/images/'
-SAVE_PATH = './classifier/pieces/'
+READ_PATH = './src/classifier/images/'
+SAVE_PATH = './src/classifier/pieces/'
 
 if __name__ == '__main__':
     for name, image in list_individual_images(READ_PATH):

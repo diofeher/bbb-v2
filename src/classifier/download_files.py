@@ -8,13 +8,15 @@ import json
 import datetime
 
 
+SAVE_PATH = "./src/classifier/images/"
+
+
 if __name__ == "__main__":
     config = read_configuration_file()
 
-    username = config['credentials']['username']
-    password = config['credentials']['password']
+    username = config['credentials'][0]['username']
+    password = config['credentials'][0]['password']
     participant = config['participant']
-    votacaoURL = config['votacaoURL']
 
     session = login_bot(username, password)
     started_time = datetime.datetime.now()
@@ -23,5 +25,5 @@ if __name__ == "__main__":
     while True:
         print()
         captcha = bot.generate_captcha(wait_time=3.5)
-        save_image("./classifier/images/", f"{captcha['symbol']}_{random.randint(10000, 99999)}", captcha['image'])
+        save_image(SAVE_PATH, f"{captcha['symbol']}_{random.randint(10000, 99999)}", captcha['image'])
         print(f'Started time: {started_time}. Now: {datetime.datetime.now()}')
