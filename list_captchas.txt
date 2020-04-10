@@ -24,6 +24,7 @@ cadeado
 cadeira
 caixa
 calca
+cassete
 calendario
 camarao
 camera
@@ -87,6 +88,7 @@ joystick
 lagarto
 lampada
 lanterna
+lata
 lapis
 letra
 levantamento de peso
@@ -101,6 +103,7 @@ martelo
 mascara
 meia
 mesa
+melancia
 microfone
 mochila
 moeda
@@ -119,6 +122,7 @@ onibus
 pavao
 panda
 pao
+papel higienico
 passaro
 peixe
 pessoa
@@ -148,11 +152,14 @@ siri
 sofa
 sol
 sorvete
+sorriso
 tartaruga
 tanque militar
+teclado
 telefone
 trevo
 trofeu
+trompete
 tv
 vaca
 ventilador

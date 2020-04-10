@@ -6,7 +6,7 @@ import readline
 
 READ_PATH = './src/classifier/pieces/'
 SAVE_PATH = './src/classifier/classified/'
-CAPTCHAS_TXT = './src/classifier/list_captchas.txt'
+CAPTCHAS_TXT = './list_captchas.txt'
 
 with open(CAPTCHAS_TXT, 'r') as fp:
     SOLVED = [i.strip() for i in fp.readlines()]
