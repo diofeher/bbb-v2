@@ -15,6 +15,7 @@ Se tiver somente uma conta, use o seguinte formato:
 ```
 {
   "participant": 3,
+  "contasEmParalelo": 1,
   "credentials": [
     {
       "username": "email-da-sua-conta@globo.com",
@@ -29,6 +30,7 @@ Se tiver somente mais de uma conta, use o seguinte formato:
 ```
 {
   "participant": 3,
+  "contasEmParalelo": 1,
   "credentials": [
     {
       "username": "jackiechan@globo.com",
@@ -116,6 +118,19 @@ Link do Discord
 ================
 
 https://discord.gg/uJkyKUX
+
+
+Licença
+=========
+
+Bot foi feito somente para fins de estudo. Sinta-se livre pra utilizar. Não temos candidato preferido, então o bot é feito para todas as torcidas.
+
+Problemas Comuns
+=================
+
+  - [PIP não é reconhecido como comando](https://dicasdepython.com.br/resolvido-pip-nao-e-reconhecido-como-um-comando-interno/)
+  - [Python não é reconhecido como comando](https://twitter.com/diofeher/status/1244586721355988992)
+  - Sintaxe não é válida - Instalar o Python 3.7.1 (você provavelmente tem o Python 2 instalado)
 
 
 Contribuidores

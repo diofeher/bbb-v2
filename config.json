@@ -1,5 +1,6 @@
 {
   "participant": 3,
+  "contasEmParalelo": 1,
   "credentials": [
     {
       "username": "",
