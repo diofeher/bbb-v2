@@ -9,6 +9,7 @@ from proof_of_work import break_proof_of_work
 import urllib.parse
 from compare_images import compare
 from errors import GloboBlockingException
+from bbb_logging import vote_logger
 import time
 import colorama
 from colorama import Fore, Back
@@ -28,6 +29,7 @@ CAPTCHA_URL = f'https://{ROYALE_URL}/polls/{POOL}/session'
 CAPTCHA_VERIFY_URL = 'http://captcha.globo.com/api/challenge/verify'
 CAPTCHA_GENERATE_URL = 'https://captcha.globo.com/api/challenge/generate'
 VOTE_URL = f'https://{ROYALE_URL}/polls/{POOL}/votes'
+
 
 class VoteBot(object):
     def __init__(self, session, participant):
@@ -185,6 +187,7 @@ class VoteBot(object):
         if response.status_code == 200:
             self.computedVotes += 1
             print(Fore.GREEN + f"[+] Voto computado! Total de votos: {self.computedVotes}")
+            vote_logger.info(f"[+] Voto computado! {self.session.cookies}")
         elif response.status_code == 403:
             print(Fore.RED + "[-] Erro de autorização ou captcha inválido!")
         elif response.status_code == 406:

@@ -5,5 +5,5 @@ from account_manager import AccountManager
 
 if __name__ == "__main__":
     config = read_configuration_file()
-    manager = AccountManager(config['credentials'])
+    manager = AccountManager(config['credentials'], config['participant'])
     manager.run()

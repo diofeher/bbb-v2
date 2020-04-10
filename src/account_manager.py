@@ -1,46 +1,68 @@
-from queue import Queue
 import threading
 import datetime
+import time
+from queue import Queue
 from threading import Thread, BoundedSemaphore
 from colorama import Fore, Back
-from vote_bot import VoteBot
-import time
+from user_bot import UserBot
+from utils import read_configuration_file
 
 
-max_connections = 2
-semaphore = BoundedSemaphore(max_connections)
+config = read_configuration_file()
+MAX_CONNS = config['contasEmParalelo'] or 1
+RETRY_TIME = 30 * 60  # 30 minutes * secs
+semaphore = BoundedSemaphore(MAX_CONNS)
 
 
-# A thread that produces data
-def producer(out_q, account):
+def producer(out_q, data, participant):
+    username = data['username']
+    password = data['password']
     semaphore.acquire()
     try:
-        vote = VoteBot(account)
-        vote.run()
+        bot = UserBot(username, password, participant)
+        bot.run()
     except Exception as e:
-        print(Fore.RED + f"Teve erro. Testando com outro usuário...")
+        print(f"{Fore.RED} Teve erro em {username}. {e} Testando com outro usuário...")
         semaphore.release()
-        out_q.put(account)
+        out_q.put(username)
 
 
 # A thread that consumes data
-def consumer(in_q, accounts):
+def consumer(in_q, accounts, participant):
     while True:
-        data = in_q.get()
-        print('consumer!', data)
-        accounts[data] = datetime.datetime.now()
-        print('accounts', accounts)
-
+        username = in_q.get()
+        accounts[username]['timestamp'] = datetime.datetime.now()
+        for username, creds in accounts.items():
+            diff = datetime.datetime.now() - creds['timestamp']
+            if diff.seconds > RETRY_TIME:
+                Thread(
+                    target=producer,
+                    args=(in_q, creds, participant)
+                ).start()
+        time.sleep(60)
 
 
 class AccountManager(object):
-    def __init__(self, config):
-        import pdb; pdb.set_trace()
-        self.accounts = dict.fromkeys(config['credentials'], None)
-        self.q = Queue(maxsize=max_connections)
+    def __init__(self, credentials, participant):
+        accs = {}
+        for creds in credentials:
+            username = creds['username']
+            accs[username] = creds
+            accs[username]['timestamp'] = datetime.datetime.now()
+        self.accounts = accs
+        self.participant = participant
+        self.q = Queue(maxsize=MAX_CONNS)
 
     def run(self):
-        Thread(target=consumer, args =(self.q, self.accounts)).start()
-        for account, timestamp in self.accounts.items():
-            t2 = Thread(target=producer, args =(self.q, account))
+        t1 = Thread(
+            target=consumer,
+            args=(self.q, self.accounts, self.participant)
+        )
+        t1.start()
+
+        for _, creds in self.accounts.items():
+            t2 = Thread(
+                target=producer,
+                args=(self.q, creds, self.participant)
+            )
             t2.start()
