@@ -131,6 +131,7 @@ Problemas Comuns
   - [PIP não é reconhecido como comando](https://dicasdepython.com.br/resolvido-pip-nao-e-reconhecido-como-um-comando-interno/)
   - [Python não é reconhecido como comando](https://twitter.com/diofeher/status/1244586721355988992)
   - Sintaxe não é válida - Instalar o Python 3.7.1 (você provavelmente tem o Python 2 instalado)
+  - No module named requests - Você precisa rodar o `instalador-windows.bat`
 
 
 Contribuidores
