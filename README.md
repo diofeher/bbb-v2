@@ -145,3 +145,4 @@ Contribuidores
   - [Nicolas França](https://twitter.com/NicolasFrancaX/)
   - [Rafael Chaguri](https://twitter.com/RafaelChaguri)
   - [Jose Arthur](https://github.com/josearthur)
+  - [Bruno Trindade](https://github.com/s3ttings)
