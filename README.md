@@ -133,9 +133,15 @@ Problemas Comuns
   - Sintaxe não é válida - Instalar o Python 3.7.1 (você provavelmente tem o Python 2 instalado)
   - No module named requests - Você precisa rodar o `instalador-windows.bat`
 
+Total de Votos
+==============
+
+Se você precisa de auditoria do total de votos, todos os votos válidos serão computados no arquivo `votes.log`.
+
 
 Contribuidores
 ================
 
   - [Nicolas França](https://twitter.com/NicolasFrancaX/)
   - [Rafael Chaguri](https://twitter.com/RafaelChaguri)
+  - [Jose Arthur](https://github.com/josearthur)
