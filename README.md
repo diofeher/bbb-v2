@@ -5,10 +5,10 @@ Paredão dessa semana:
 ```
 Babu - 1
 Flayslane - 2
-Marcela - 3
+Thelma - 3
 ```
 
-Você precisa editar o arquivo `config.json` com as seguintes informações:
+Você precisa editar o arquivo `src/config.json` com as seguintes informações:
 
 Se tiver somente uma conta, use o seguinte formato:
 
