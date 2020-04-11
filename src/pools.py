@@ -4,7 +4,7 @@ from colorama import Fore, Back
 
 
 headerspool = {
-    "Host": "gshow.globo.com",
+#    "Host": "gshow.globo.com",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20101101 Firefox/74.0.8",
   "Content-Type": "application/json; charset=utf-8",
     "Accept-Encoding": "gzip, deflate",
