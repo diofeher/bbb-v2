@@ -9,7 +9,7 @@ from utils import read_configuration_file
 
 
 config = read_configuration_file()
-MAX_CONNS = config['contasEmParalelo'] or 1
+MAX_CONNS = config.get('contasEmParalelo', 1)
 RETRY_TIME = 30 * 60  # 30 minutes * secs
 semaphore = BoundedSemaphore(MAX_CONNS)
 
