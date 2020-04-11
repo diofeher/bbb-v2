@@ -16,20 +16,17 @@ from colorama import Fore, Back
 from pools import get_pool
 colorama.init(autoreset=True)
 
-
-SECONDS_TO_WAIT = 6
 HASHZEROS_LIMIT = 6
 VOTES = 0
 getpool = get_pool()
 POOL = getpool[0]
+# POOL = 'bcf52c26-9580-4d10-9c20-4f880d286778'
+ROYALE_URL = 'royale.globo.com'
+MAX_SECONDS_TO_WAIT = 623 # Dividido por 100. 6.23 segundos ---> Não recomendo mudar. 
 random_decimal1 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
 random_decimal2 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
 random_decimal3 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
 random_decimal4 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
-
-# POOL = 'bcf52c26-9580-4d10-9c20-4f880d286778'
-ROYALE_URL = 'royale.globo.com'
-
 CAPTCHA_URL = f'https://{ROYALE_URL}/polls/{POOL}/session'
 CAPTCHA_VERIFY_URL = 'http://captcha.globo.com/api/challenge/verify'
 CAPTCHA_GENERATE_URL = 'https://captcha.globo.com/api/challenge/generate'
