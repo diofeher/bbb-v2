@@ -105,6 +105,14 @@ python3 src/classifier/classify.py
 
 Depois de ter terminado, coloque todas as imagens que estão em `classified` no `images_individual`
 
+Criando executável pra Windows
+===============================
+
+```
+cd src
+pyinstaller --add-data 'config.json;.' --add-data 'images_individual;images_individual' --add-data 'images;images' bbb.py
+```
+
 
 Série de vídeos explicando como o bot foi feito
 ======================================================
