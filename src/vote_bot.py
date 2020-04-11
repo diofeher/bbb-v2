@@ -22,6 +22,11 @@ HASHZEROS_LIMIT = 6
 VOTES = 0
 getpool = get_pool()
 POOL = getpool[0]
+random_decimal1 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+random_decimal2 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+random_decimal3 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+random_decimal4 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
+
 # POOL = 'bcf52c26-9580-4d10-9c20-4f880d286778'
 ROYALE_URL = 'royale.globo.com'
 
@@ -66,7 +71,7 @@ class VoteBot(object):
             'zeros': self.hashcashZeros,
         }
 
-        time.sleep(SECONDS_TO_WAIT)
+        time.sleep(random_decimal1)
         response = self.session.get(
             CAPTCHA_URL,
             headers=self.headers,
@@ -79,7 +84,7 @@ class VoteBot(object):
         self.hashcash = response.headers.get('x-hashcash', '')
 
 
-    def generate_captcha(self, wait_time=SECONDS_TO_WAIT):
+    def generate_captcha(self, wait_time=random_decimal2):
         print('[+] Pegar captcha da Globo')
 
         headers = copy.copy(self.headers)
@@ -133,7 +138,7 @@ class VoteBot(object):
         headers = copy.copy(self.headers)
         del headers['content-type']
 
-        time.sleep(SECONDS_TO_WAIT)
+        time.sleep(random_decimal3)
         response = self.session.post(
             CAPTCHA_VERIFY_URL,
             headers=headers,
@@ -168,7 +173,7 @@ class VoteBot(object):
             'Origin': 'https://globoesporte.globo.com',
         }
 
-        time.sleep(SECONDS_TO_WAIT)
+        time.sleep(random_decimal4)
         response = self.session.post(
             VOTE_URL,
             headers=headers,
