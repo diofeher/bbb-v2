@@ -1,4 +1,5 @@
 import os
+import sys
 from PIL import Image
 import string
 import base64
@@ -62,8 +63,14 @@ def cookie_string_to_mapping(text):
     return cookies
 
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
+
 def read_configuration_file():
-    with open('./config.json') as file:
+    with open(resource_path('config.json')) as file:
         arguments = json.load(file)
 
     credentials = arguments['credentials']
