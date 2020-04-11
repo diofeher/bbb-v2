@@ -4,14 +4,14 @@ import random
 import copy
 import requests
 import json
-from utils import save_image, cookie_string_to_mapping
-from proof_of_work import break_proof_of_work
 import urllib.parse
+import time
+import colorama
+from utils import resource_path, save_image, cookie_string_to_mapping
+from proof_of_work import break_proof_of_work
 from compare_images import compare
 from errors import GloboBlockingException
 from bbb_logging import vote_logger
-import time
-import colorama
 from colorama import Fore, Back
 from pools import get_pool
 colorama.init(autoreset=True)
@@ -20,9 +20,8 @@ HASHZEROS_LIMIT = 6
 VOTES = 0
 getpool = get_pool()
 POOL = getpool[0]
-# POOL = 'bcf52c26-9580-4d10-9c20-4f880d286778'
 ROYALE_URL = 'royale.globo.com'
-MAX_SECONDS_TO_WAIT = 623 # Dividido por 100. 6.23 segundos ---> Não recomendo mudar. 
+MAX_SECONDS_TO_WAIT = 623 # Dividido por 100. 6.23 segundos ---> Não recomendo mudar.
 random_decimal1 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
 random_decimal2 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
 random_decimal3 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
@@ -103,7 +102,7 @@ class VoteBot(object):
 
         self.symbol = response_data['data']['symbol']
         self.captchaSessionToken = response_data['sessionToken']
-        save_image('./src/images/', self.symbol, response_data['data']['image'])
+        save_image(resource_path('images/'), self.symbol, response_data['data']['image'])
         return response_data['data']
 
 
