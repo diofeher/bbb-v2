@@ -4,8 +4,8 @@ BBBot + OpenCV
 Paredão dessa semana:
 ```
 Babu - 1
-Flayslane - 2
-Thelma - 3
+Gizelly - 2
+Mari - 3
 ```
 
 Você precisa editar o arquivo `src/config.json` com as seguintes informações:
