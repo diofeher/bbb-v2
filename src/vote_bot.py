@@ -18,8 +18,9 @@ colorama.init(autoreset=True)
 
 HASHZEROS_LIMIT = 6
 VOTES = 0
-getpool = get_pool()
-POOL = getpool[0]
+# getpool = get_pool()
+# POOL = getpool[0]
+POOL = '9489daaa-15ee-4a2e-8e8d-22391a58e23c'
 ROYALE_URL = 'royale.globo.com'
 MAX_SECONDS_TO_WAIT = 623 # Dividido por 100. 6.23 segundos ---> Não recomendo mudar.
 random_decimal1 = random.randint(325, MAX_SECONDS_TO_WAIT)/100
