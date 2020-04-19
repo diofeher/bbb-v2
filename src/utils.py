@@ -6,13 +6,15 @@ import base64
 import json
 import unicodedata
 from colorama import Fore
+from line_filters import lineFilter
 
 
 SIZE = 5
 
 
 def save_candidate_name(path, image, icon_name, count):
-    image.save(path + handle_name(icon_name) + '_' + str(count) + '.png')
+    newImg = lineFilter(image)
+    newImg.save(path + handle_name(icon_name) + '_' + str(count) + '.png')
 
 
 def list_individual_images(path):
