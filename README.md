@@ -156,3 +156,4 @@ Contribuidores
   - [Bruno Trindade](https://github.com/s3ttings)
   - [Pedro Henrique](https://twitter.com/shawnmutual)
   - [Malkavianson](https://github.com/Malkavianson)
+  - [Guilherme Salustiano](https://twitter.com/guissalustiano)
