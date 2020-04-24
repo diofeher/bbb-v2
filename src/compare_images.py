@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from PIL import Image
 from utils import resource_path, list_individual_images, break_captcha, handle_name
+from line_filters import lineFilter
 import sys
 
 
